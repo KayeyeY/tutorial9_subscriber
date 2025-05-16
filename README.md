@@ -9,3 +9,9 @@ Dalam file main.rs, AMQP digunakan sebagai sistem antrian pesan (message queuing
 ```guest:guest@localhost:5672``` merupakan URL yang digunakan untuk menghubungkan ke server AMQP.
 
 Kata pertama guest menunjukkan username yang dipakai untuk otentikasi ke RabbitMQ, sedangkan guest kedua merupakan password-nya. localhost menandakan bahwa server AMQP dijalankan pada mesin lokal yang sama dengan aplikasi. Angka 5672 adalah port default yang digunakan oleh RabbitMQ untuk menerima koneksi dari client.
+
+## Message Broker dengan RabbitMQ
+### Simulating slow subscriber
+
+<img src="image/image.png">
+Pada gambar tersebut, saya membuat subscriber bekerja lebih lambat dengan menambahkan delay 1 detik untuk setiap proses penerimaan data dari message broker. Akibatnya, jumlah pesan yang masuk ke antrean (queued messages) di message broker meningkat karena kecepatan publisher dalam mengirim pesan lebih tinggi dibandingkan kecepatan subscriber dalam memprosesnya.
